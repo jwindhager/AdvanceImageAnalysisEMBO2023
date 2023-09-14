@@ -3,7 +3,9 @@
 EMBO Practical Course, Heidelberg, 2023
 
 # Preliminary installations (local workstations that need to be setup)
-## Fiji 
+
+**Fiji**
+
 From session one you should already have:
 - Download Fiji on your computer (https://imagej.net/software/fiji/downloads)
 - Install the required plugins in Fiji:
@@ -14,7 +16,7 @@ From session one you should already have:
     - DeepImageJ
   - Press Apply Changes.
 
-## ilastik
+**ilastik**
 
 * Download the latest beta version of ilastik from [our download page](https://www.ilastik.org/download.html#beta).
 * Windows users please install, Mac and linux users please extract the downloaded file.
@@ -24,17 +26,15 @@ Useful links:
 * [ilastik on forum.image.sc](https://forum.image.sc/tag/ilastik)
 * [ilastik source code](https://github.com/ilastik/ilastik)
 
-## BioImage Model Zoo
+**BioImage Model Zoo**
 
 Download and install [Google Chrome](https://www.google.com/chrome/)
 
-# BioImage Model Zoo exercises
 
-## Exercise 1: Explore the BioImage Model Zoo content
+# Exercise 1: Explore the BioImage Model Zoo content
 (User guide: https://bioimage.io/docs/#/user_guide/README)
 
 You have 5 minutes to complete this exercise :)
-
 
 1. Go to the BioImage Model Zoo and identify where to find:
   -	The Documentation
@@ -42,14 +42,14 @@ You have 5 minutes to complete this exercise :)
   - Bug reports
   - Contact us
 2. Look for a model to segment *Bacillus Subtilis* bacteria.
-![image](https://github.com/bioimage-io/AdvanceImageAnalysisEMBO2023/blob/main/figures/placidllama-modelcard.png)
+    ![image](https://github.com/bioimage-io/AdvanceImageAnalysisEMBO2023/blob/main/figures/placidllama-modelcard.png)
 3. The model is displayed as a model card. If you click, it will open. Take a look at the information given (e.g., name of the authors, the publications, and the ID of the model.)
 **What is the (animal) name of this model?**
 4.	In the model card, find the Jupyter notebook that you could use to retrain the model. The link will open a new card with the information about this notebook. In this card, find a way to open it in Google Colab.
 5.	Back in the model card, find the information about the dataset used to train the model. The link to the dataset will open a new card with the information about the dataset and the link to download it from Zenodo.
 6.	In the model card, find a spot where you could ask for help with the model.
 
-## Exercise 2: Run a model in the browser with the BioEngine
+# Exercise 2: Run a model in the browser with the BioEngine
 Browser prediction: Use the model `shivering-raccoon`. 
 - Click on the “play” button to start the BioEngine. 
 - Download the test image left column in the BioEngine describing the model.   
@@ -61,7 +61,7 @@ Browser prediction: Use the model `shivering-raccoon`.
 - Click on submit.
   - ![image](https://github.com/bioimage-io/AdvanceImageAnalysisEMBO2023/blob/main/figures/shiveringracoon-bioengine.png)
  
-### Exercise 2.1 (optional)
+## Exercise 2.1 (optional)
 If you have time, play with the prediction in the browser with any of the following models:
 - Hiding-tiger
 - Passionate-t-rex (3D)
@@ -71,10 +71,7 @@ If you have time, play with the prediction in the browser with any of the follow
 -	Hiding-blowfish
 -	Willing-hedgehog
 
-# DeepImageJ:
-
-## Exercise 3: Download a model from the BioImage Model Zoo and install it with deepImageJ in Fiji
-
+# Exercise 3: Download a model from the BioImage Model Zoo and install it with deepImageJ in Fiji
 1.	Look for a model to segment Histopathology Images with StarDist (e.g., `chatty-frog`).
 2.	Find a way to download the model for deepImageJ (we will use them later).
 3.	Install it in Fiji: Plugins > DeepImageJ > DeepImageJ Install Model
@@ -84,7 +81,7 @@ If you have time, play with the prediction in the browser with any of the follow
 
 This model outputs the raw information needed to reconstruct Star-Convex polygons in StarDist. If you have the StarDist plugin, you can process this output with StarDist 2D NMS (postprocessing only).
 
-## Exercise 4: Deep-learning boosted instance segmentation of cells.
+# Exercise 4: Deep-learning boosted instance segmentation of cells.
 1.	Download the model `B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet` from the Bioimage Model Zoo (`placid-llama`).
     - The simplest way is to use the plugin deepImageJ Install Model in Fiji: Plugins > DeepImageJ > DeepImageJ Install Model
     - Look for the model, read the warning note and accept it. This could take some minutes depending on the connection. Once the downloading window disappears, the process has finished and you can close deepImageJ installer.
@@ -110,16 +107,6 @@ This model outputs the raw information needed to reconstruct Star-Convex polygon
             -	Marker: The result of the subtraction (the previous step)
             -	Mask: Binary segmentation (thresholded output of the model)
             -	Compactness: 0.00.
-### Exercise 4.1: Process new images
-
-In the data folder, find the new data in `BSubtilis_DeepBacs`. Open one of the images and process it with the `placid-llama` model in deepImageJ (Plugins > DeepImageJ > DeepImageJ Run > Run).
-
-## Exercise 5 Super-resolution models in Fiji (Optional and to run out of BAN)
-1.	Download the organized-cricket model for super-resolution and install it in deepImageJ. 
-2.	Open an image from the folder: Mitotracker Low-Resolution → Input
-3.	Run the Macro recorder to know how to run deepImageJ automatically.
-4.	Process the image with the model. 
-5.	Create a macro that processes all the images in the folder and saves them in a new folder. The following ImageJ macro may be helpful for you.
 
 ### IJ Macro for automation
 
@@ -159,6 +146,17 @@ run("Set Label Map", "colormap=Spectrum background=Black shuffle");
 ```
 
 </details>
+
+## Exercise 4.1 (optional): Process new images
+
+In the data folder, find the new data in `BSubtilis_DeepBacs`. Open one of the images and process it with the `placid-llama` model in deepImageJ (Plugins > DeepImageJ > DeepImageJ Run > Run). Try using the previous macro to open each of the images in this folder, process them with the model, get the instance masks and save the results. 
+You can now try opening the results as a time lapse stack in Fiji and track the bacteria with TrackMate (you may need to install the plugin).
+
+# Exercise 5 Super-resolution models in Fiji (Optional and to run out of BAN)
+1.	Download the organized-cricket model for super-resolution and install it in deepImageJ. 
+2.	Open an image from the folder: Mitotracker Low-Resolution → Input
+3.	Run the Macro recorder to learn how to run deepImageJ automatically.
+4.	Process the image with the model. 
 
 # ilastik
 ## Setup
